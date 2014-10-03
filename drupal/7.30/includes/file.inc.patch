@@ -1,5 +1,5 @@
---- a/www/fa-d7/includes/file.inc	2014-08-25 11:27:42.000000000 -0400
-+++ b/www/fa-d7/includes/file.inc	2014-08-25 11:28:35.000000000 -0400
+--- includes/file.inc 2014-10-03 16:46:37.288884471 +0000
++++ includes/file.new 2014-10-03 16:50:31.532947246 +0000
 @@ -598,14 +598,24 @@
   */
  function file_save(stdClass $file) {
@@ -15,22 +15,22 @@
 +  } else {
 +    $file->filesize = filesize($file->uri);
 +  }
-
+ 
    // Load the stored entity, if any.
    if (!empty($file->fid) && !isset($file->original)) {
      $file->original = entity_load_unchanged('file', $file->fid);
    }
-
+ 
 -  module_invoke_all('file_presave', $file);
 +  // File_presave hook is slowing everything down.
 +  // module_invoke_all('file_presave', $file);
    module_invoke_all('entity_presave', $file, 'file');
-
+ 
    if (empty($file->fid)) {
 @@ -629,6 +639,7 @@
    return $file;
  }
-
+ 
 +
  /**
   * Determines where a file is used.

@@ -1,0 +1,15 @@
+--- a/www/fa-d7/profiles/foreignaffairs/modules/contrib/migrate/plugins/destinations/file.inc	2014-08-20 15:56:06.000000000 -0400
++++ b/www/fa-d7/profiles/foreignaffairs/modules/contrib/migrate/plugins/destinations/file.inc	2014-08-20 15:55:59.000000000 -0400
+@@ -243,7 +243,11 @@
+     // replacing it
+     if ($this->fileReplace == self::FILE_EXISTS_REUSE) {
+       // See if we this file already (we'll reuse a file entity if it exists).
+-      if (file_exists($destination)) {
++
++      // In order to speed up one-time file migrations, we are removing this
++      // check and always assuming that the file exists.
++      // if (file_exists($destination)) {
++      if (true) {
+         $file = $this->createFileEntity($destination, $owner);
+         // File entity didn't already exist, create it
+         if (empty($file->fid)) {

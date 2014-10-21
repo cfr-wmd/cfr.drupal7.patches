@@ -1,6 +1,8 @@
---- includes/file.inc	2014-10-15 10:36:46.000000000 -0400
-+++ includes/file.inc.new	2014-10-20 15:55:22.000000000 -0400
-@@ -598,14 +598,22 @@
+diff --git a/file.inc b/file.inc.new
+index d3008cc..8bb3973 100644
+--- a/file.inc
++++ b/file.inc.new
+@@ -598,7 +598,16 @@ function file_load($fid) {
   */
  function file_save(stdClass $file) {
    $file->timestamp = REQUEST_TIME;
@@ -18,10 +20,3 @@
  
    // Load the stored entity, if any.
    if (!empty($file->fid) && !isset($file->original)) {
-     $file->original = entity_load_unchanged('file', $file->fid);
-   }
- 
--  module_invoke_all('file_presave', $file);
-   module_invoke_all('entity_presave', $file, 'file');
- 
-   if (empty($file->fid)) {

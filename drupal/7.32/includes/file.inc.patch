@@ -1,8 +1,6 @@
-diff --git a/file.inc b/file.inc.new
-index d3008cc..8bb3973 100644
---- a/file.inc
-+++ b/file.inc.new
-@@ -598,7 +598,16 @@ function file_load($fid) {
+--- includes/file.inc	2014-10-22 18:11:15.000000000 +0000
++++ includes/file.inc.new	2014-10-21 14:49:41.500346273 +0000
+@@ -598,7 +598,16 @@
   */
  function file_save(stdClass $file) {
    $file->timestamp = REQUEST_TIME;

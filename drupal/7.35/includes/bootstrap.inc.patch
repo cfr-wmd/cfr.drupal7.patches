@@ -1,14 +1,16 @@
---- includes/bootstrap.inc      2015-03-18 15:20:37.000000000 -0400
-+++ includes/fa.bootstrap.inc   2015-04-22 16:54:01.481031278 -0400
-@@ -2949,6 +2949,11 @@
- 
+diff --git a/includes/bootstrap.inc b/includes/bootstrap.inc
+index b33f950..b525ad0 100644
+--- a/includes/bootstrap.inc
++++ b/includes/bootstrap.inc
+@@ -2950,6 +2950,11 @@ function ip_address() {
          // Eliminate all trusted IPs.
          $untrusted = array_diff($forwarded, $reverse_proxy_addresses);
-+        
-+        // If configured, eliminate more trusted IPs.
-+        if (!empty($GLOBALS['conf']['fa_reverse_proxy_addresses_number_to_eliminate'])) {
-+          $untrusted = array_slice($untrusted, 0, -((int) $GLOBALS['conf']['fa_reverse_proxy_addresses_number_to_eliminate']));
-+        }
  
++        // If configured, eliminate more trusted IPs.
++        if (variable_get('reverse_proxy_addresses_skip', 0) != 0) {
++          $untrusted = array_slice($untrusted, 0, -(variable_get('reverse_proxy_addresses_skip')));
++        }
++
          // The right-most IP is the most specific we can trust.
          $ip_address = array_pop($untrusted);
+       }

@@ -1,0 +1,19 @@
+diff --git a/better_messages.js b/better_messages.js
+index 1f9da01..1fb9621 100755
+--- a/better_messages.js
++++ b/better_messages.js
+@@ -101,13 +101,9 @@
+ 				});
+ 			
+ 				/* Determine Popup Message position for IE6 bug with fixed display */
+-				if (betterMessages.fixed == '1' && !($.browser.msie && $.browser.version == '6.0')) {
++				if (betterMessages.fixed == '1') {
+ 					message_box.css({"position":"fixed"});
+ 				}
+-				else { /* IE6 handing */
+-					message_box.css({"position":"absolute"});
+-					$(window).scroll(function() { message_box.stop().css({top:($(window).scrollTop() + vertical) + 'px'});});
+-				}
+ 			}
+ 		}
+ 	}

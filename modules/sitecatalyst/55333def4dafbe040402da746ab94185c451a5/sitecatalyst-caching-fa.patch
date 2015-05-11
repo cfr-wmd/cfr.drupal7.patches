@@ -1,10 +1,19 @@
+diff --git a/README.txt b/README.txt
+old mode 100644
+new mode 100755
+diff --git a/SiteCatalyst(20.3).example.txt b/SiteCatalyst(20.3).example.txt
+old mode 100644
+new mode 100755
+diff --git a/plugins/context/sitecatalyst_reaction_variables.inc b/plugins/context/sitecatalyst_reaction_variables.inc
+old mode 100644
+new mode 100755
 diff --git a/sitecatalyst.info b/sitecatalyst.info
 old mode 100644
 new mode 100755
-index ee6844a..f29f066
+index ee6844a..94d668f
 --- a/sitecatalyst.info
 +++ b/sitecatalyst.info
-@@ -3,8 +3,16 @@ description = Adds SiteCatalyst javascript tracking code to your site's pages.
+@@ -3,8 +3,23 @@ description = Adds SiteCatalyst javascript tracking code to your site's pages.
  core = 7.x
  
  configure = admin/config/system/sitecatalyst
@@ -21,10 +30,20 @@ index ee6844a..f29f066
 +project = "sitecatalyst"
 +datestamp = "1430937792"
 +
++
++
++; Information added by drush on 2015-05-08
++version = "55333def4dafbe040402da746ab94185c451a5"
++project = "sitecatalyst"
++datestamp = "1431090002"
++
+diff --git a/sitecatalyst.install b/sitecatalyst.install
+old mode 100644
+new mode 100755
 diff --git a/sitecatalyst.module b/sitecatalyst.module
 old mode 100644
 new mode 100755
-index e852ae1..fbac40c
+index e852ae1..d4e0a72
 --- a/sitecatalyst.module
 +++ b/sitecatalyst.module
 @@ -10,6 +10,8 @@
@@ -184,3 +203,6 @@ index e852ae1..fbac40c
      if (module_exists('menu')) {
        $context['menu'] = menu_load('main-menu');
      }
+diff --git a/tests/sitecatalyst.test b/tests/sitecatalyst.test
+old mode 100644
+new mode 100755

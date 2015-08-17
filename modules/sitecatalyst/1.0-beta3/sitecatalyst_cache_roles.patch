@@ -1,0 +1,20 @@
+diff --git a/sitecatalyst.module b/sitecatalyst.module
+index b6e35e6..c66de67 100755
+--- a/sitecatalyst.module
++++ b/sitecatalyst.module
+@@ -549,6 +549,7 @@ function _sitecatalyst_token_replace_make_key($text, array $data) {
+   // it will be nicer on array lookups in PHP.
+   $keys[] = sha1($text);
+   $keys[] = isset($data['node']->nid) ? $data['node']->nid . '-' . entity_modified_last('node', $data['node'])  : NULL;
++  $keys[] = isset($data['user']->roles) ? 'roles' . '-' . md5(implode(array_values($data['user']->roles))) : NULL;
+   $keys[] = isset($data['menu']->menu_name) ? $data['menu']->menu_name . '-' . entity_modified_last('menu', $data['menu']) : NULL;
+   $keys[] = isset($data['tag']->machinename) ? $data['tag']->machinename . '-' . entity_modified_last('tag', $data['tag']) : NULL;
+ 
+@@ -632,6 +633,7 @@ function _sitecatalyst_get_token_context() {
+   if (is_null($context)) {
+     $context['node'] = menu_get_object('node');
+     $context['term'] = menu_get_object('taxonomy_term', 2);
++    $context['user'] = $GLOBALS['user'];
+     if (module_exists('menu')) {
+       $context['menu'] = menu_load('main-menu');
+     }

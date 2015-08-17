@@ -1,24 +1,8 @@
-diff --git a/sitecatalyst.info b/sitecatalyst.info
-index 1fa6db7..b0facc5 100755
---- a/sitecatalyst.info
-+++ b/sitecatalyst.info
-@@ -9,3 +9,11 @@ files[] = sitecatalyst.module
- files[] = sitecatalyst.install
- files[] = tests/sitecatalyst.test
- package = Statistics
-+
-+
-+; Information added by drush on 2015-08-17
-+version = "7.x-1.0-beta3"
-+core = "7.x"
-+project = "sitecatalyst"
-+datestamp = "1439839441"
-+
 diff --git a/sitecatalyst.module b/sitecatalyst.module
-index b6e35e6..a2c87ee 100755
+index b6e35e6..c66de67 100755
 --- a/sitecatalyst.module
 +++ b/sitecatalyst.module
-@@ -549,10 +549,12 @@ function _sitecatalyst_token_replace_make_key($text, array $data) {
+@@ -549,6 +549,7 @@ function _sitecatalyst_token_replace_make_key($text, array $data) {
    // it will be nicer on array lookups in PHP.
    $keys[] = sha1($text);
    $keys[] = isset($data['node']->nid) ? $data['node']->nid . '-' . entity_modified_last('node', $data['node'])  : NULL;
@@ -26,12 +10,7 @@ index b6e35e6..a2c87ee 100755
    $keys[] = isset($data['menu']->menu_name) ? $data['menu']->menu_name . '-' . entity_modified_last('menu', $data['menu']) : NULL;
    $keys[] = isset($data['tag']->machinename) ? $data['tag']->machinename . '-' . entity_modified_last('tag', $data['tag']) : NULL;
  
-   return implode('|', array_filter($keys));
-+
- }
- 
- /**
-@@ -632,6 +634,7 @@ function _sitecatalyst_get_token_context() {
+@@ -632,6 +633,7 @@ function _sitecatalyst_get_token_context() {
    if (is_null($context)) {
      $context['node'] = menu_get_object('node');
      $context['term'] = menu_get_object('taxonomy_term', 2);

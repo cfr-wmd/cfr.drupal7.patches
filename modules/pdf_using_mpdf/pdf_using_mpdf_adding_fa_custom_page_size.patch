@@ -1,0 +1,12 @@
+diff --git a/pdf_using_mpdf.module b/pdf_using_mpdf.module
+index 3ec80db..26e0963 100644
+--- a/pdf_using_mpdf.module
++++ b/pdf_using_mpdf.module
+@@ -150,6 +150,7 @@ function _pdf_using_mpdf_generator($html, $filename = NULL) {
+     'Letter' => array('w' => 215.9, 'h' => 279.4),
+     'Legal' => array('w' => 215.9, 'h' => 355.6),
+     'Ledger' => array('w' => 279.4, 'h' => 431.8),
++    'FA Custom' => array('w' => 177.8, 'h' => 254),
+   );
+ 
+   $root_path = drupal_get_path('module', 'pdf_using_mpdf');

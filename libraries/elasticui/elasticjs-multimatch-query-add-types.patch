@@ -1,0 +1,38 @@
+diff --git a/examples/demo/lib/elastic.js b/examples/demo/lib/elastic.js
+index e52f20b..45b80d5 100644
+--- a/examples/demo/lib/elastic.js
++++ b/examples/demo/lib/elastic.js
+@@ -12378,10 +12378,14 @@
+ 
+             /**
+                   Sets the type of the <code>MultiMatchQuery</code>.  Valid values are
+-                  boolean, phrase, and phrase_prefix or phrasePrefix.
+-      
++                  best_fields, bestFields, most_fields, mostFields,
++                  cross_fields, crossFields, phrase, and phrase_prefix or
++                  phrasePrefix.
++
+                   @member ejs.MultiMatchQuery
+-                  @param {String} type Any of boolean, phrase, phrase_prefix or phrasePrefix.
++                  @param {String} type Any of best_fields, bestFields,
++                                  most_fields, mostFields, cross_fields, crossFields, phrase,
++                                  phrase_prefix or phrasePrefix.
+                   @returns {Object} returns <code>this</code> so that calls can be chained.
+                   */
+             type: function (type) {
+@@ -12390,7 +12394,7 @@
+                 }
+ 
+                 type = type.toLowerCase();
+-                if (type === 'boolean' || type === 'phrase' || type === 'phrase_prefix') {
++                if (type === 'best_fields' || type === 'most_fields' || type === 'cross_fields' || type === 'phrase' || type === 'phrase_prefix') {
+                     query.multi_match.type = type;
+                 }
+ 
+@@ -17775,4 +17779,4 @@
+ }).call(this);
+ 
+ //var request = ejs.Request()
+-//new ejs.TermsAggregation("sdf").
+\ No newline at end of file
++//new ejs.TermsAggregation("sdf").

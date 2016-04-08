@@ -1,0 +1,12 @@
+diff --git a/dist/elasticui.js b/dist/elasticui.js
+index 31dad43..a843cb9 100644
+--- a/dist/elasticui.js
++++ b/dist/elasticui.js
+@@ -704,6 +704,7 @@ var elasticui;
+                     return _this.search();
+                 });
+                 $scope.$watch('indexVM.query', function () {
++                    _this.indexVM.page = 1;
+                     return _this.search();
+                 });
+                 $scope.$watch('indexVM.highlight', function () {

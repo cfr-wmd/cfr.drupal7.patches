@@ -1,0 +1,13 @@
+diff --git a/includes/webform.emails.inc b/includes/webform.emails.inc
+index b6c8d4f..e56bf8d 100644
+--- a/includes/webform.emails.inc
++++ b/includes/webform.emails.inc
+@@ -299,7 +299,7 @@ function webform_email_edit_form($form, $form_state, $node, $email = array(), $c
+             '#title' => $label,
+             '#default_value' => is_numeric($email[$field]) && $email[$field] == $cid && is_array($email['extra']) && isset($email['extra'][$field . '_mapping'][$key]) ? $email['extra'][$field . '_mapping'][$key] : '',
+             '#attributes' => array('placeholder' => t('email@example.com')),
+-            '#maxlength' => 500,
++            '#maxlength' => 1100,
+           );
+         }
+       }

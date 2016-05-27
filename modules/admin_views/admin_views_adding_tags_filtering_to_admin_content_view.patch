@@ -1,10 +1,8 @@
 diff --git a/admin_views_default/node.admin-content.inc b/admin_views_default/node.admin-content.inc
-old mode 100644
-new mode 100755
-index d501c18..2de1673
+index d501c18..61e0e12 100644
 --- a/admin_views_default/node.admin-content.inc
 +++ b/admin_views_default/node.admin-content.inc
-@@ -129,128 +129,85 @@ $handler->display->display_options['fields']['views_bulk_operations']['element_l
+@@ -129,128 +129,108 @@ $handler->display->display_options['fields']['views_bulk_operations']['element_l
  $handler->display->display_options['fields']['views_bulk_operations']['hide_alter_empty'] = FALSE;
  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
@@ -86,7 +84,30 @@ index d501c18..2de1673
 -      'url' => '',
 +      'show_all_tokens' => 1,
 +      'display_values' => array(
-+        '_all_' => '_all_',
++        'anthology::field_regions' => 'anthology::field_regions',
++        'anthology::field_topics' => 'anthology::field_topics',
++        'anthology::field_tags' => 'anthology::field_tags',
++        'article::field_regions' => 'article::field_regions',
++        'article::field_topics' => 'article::field_topics',
++        'article::field_tags' => 'article::field_tags',
++        'interview::field_regions' => 'interview::field_regions',
++        'interview::field_topics' => 'interview::field_topics',
++        'interview::field_tags' => 'interview::field_tags',
++        'listicle::field_regions' => 'listicle::field_regions',
++        'listicle::field_topics' => 'listicle::field_topics',
++        'listicle::field_tags' => 'listicle::field_tags',
++        'media::field_regions' => 'media::field_regions',
++        'media::field_topics' => 'media::field_topics',
++        'media::field_tags' => 'media::field_tags',
++        'news_release::field_regions' => 'news_release::field_regions',
++        'news_release::field_topics' => 'news_release::field_topics',
++        'news_release::field_tags' => 'news_release::field_tags',
++        'review::field_regions' => 'review::field_regions',
++        'review::field_topics' => 'review::field_topics',
++        'review::field_tags' => 'review::field_tags',
++        'sponsored_anthology::field_regions' => 'sponsored_anthology::field_regions',
++        'sponsored_anthology::field_tags' => 'sponsored_anthology::field_tags',
++        'sponsored_anthology::field_topics' => 'sponsored_anthology::field_topics',
 +      ),
      ),
    ),
@@ -155,7 +176,7 @@ index d501c18..2de1673
    ),
  );
  /* Field: Content: Title */
-@@ -274,6 +231,19 @@ $handler->display->display_options['fields']['name']['field'] = 'name';
+@@ -274,6 +254,19 @@ $handler->display->display_options['fields']['name']['field'] = 'name';
  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
  $handler->display->display_options['fields']['name']['label'] = 'Author';
  $handler->display->display_options['fields']['name']['hide_alter_empty'] = FALSE;
@@ -175,7 +196,7 @@ index d501c18..2de1673
  /* Field: Content: Published */
  $handler->display->display_options['fields']['status']['id'] = 'status';
  $handler->display->display_options['fields']['status']['table'] = 'node';
-@@ -350,12 +320,124 @@ $handler->display->display_options['filters']['vid']['expose']['label'] = 'Vocab
+@@ -350,12 +343,124 @@ $handler->display->display_options['filters']['vid']['expose']['label'] = 'Vocab
  $handler->display->display_options['filters']['vid']['expose']['operator'] = 'vid_op';
  $handler->display->display_options['filters']['vid']['expose']['identifier'] = 'vid';
  $handler->display->display_options['filters']['vid']['expose']['remember'] = TRUE;

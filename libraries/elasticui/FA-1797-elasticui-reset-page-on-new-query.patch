@@ -1,12 +1,16 @@
 diff --git a/dist/elasticui.js b/dist/elasticui.js
-index 31dad43..a843cb9 100644
+index 0afaa51..3402d7e 100644
 --- a/dist/elasticui.js
 +++ b/dist/elasticui.js
-@@ -704,6 +704,7 @@ var elasticui;
-                     return _this.search();
+@@ -643,7 +643,10 @@ var elasticui;
                  });
-                 $scope.$watch('indexVM.query', function () {
+                 $scope.$watch('indexVM.page', function () { return _this.search(); });
+                 $scope.$watch('indexVM.index', function () { return _this.search(); });
+-                $scope.$watch('indexVM.query', function () { return _this.search(); });
++                $scope.$watch('indexVM.query', function () {
 +                    _this.indexVM.page = 1;
-                     return _this.search();
-                 });
-                 $scope.$watch('indexVM.highlight', function () {
++                    return _this.search();
++                });
+                 $scope.$watch('indexVM.highlight', function () { return _this.search(); });
+                 $timeout(function () { return _this.loaded(); }, 200); // TODO: find better way to recognize loading of app
+             }

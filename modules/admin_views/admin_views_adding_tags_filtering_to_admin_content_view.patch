@@ -1,8 +1,8 @@
 diff --git a/admin_views_default/node.admin-content.inc b/admin_views_default/node.admin-content.inc
-index d501c18..61e0e12 100644
+index d501c18..977c540 100644
 --- a/admin_views_default/node.admin-content.inc
 +++ b/admin_views_default/node.admin-content.inc
-@@ -129,128 +129,108 @@ $handler->display->display_options['fields']['views_bulk_operations']['element_l
+@@ -129,128 +129,117 @@ $handler->display->display_options['fields']['views_bulk_operations']['element_l
  $handler->display->display_options['fields']['views_bulk_operations']['hide_alter_empty'] = FALSE;
  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
@@ -24,66 +24,31 @@ index d501c18..61e0e12 100644
      'skip_confirmation' => 0,
      'override_label' => 1,
      'label' => 'Delete',
--    'postpone_processing' => 0,
--  ),
--  'action::views_bulk_operations_modify_action' => array(
--    'selected' => 1,
--    'skip_confirmation' => 1,
--    'override_label' => 1,
--    'label' => 'Change value',
--    'settings' => array(
--      'show_all_tokens' => 1,
--      'display_values' => array(
--        '_all_' => '_all_',
--      ),
--    ),
--    'postpone_processing' => 0,
--  ),
--  'action::system_message_action' => array(
--    'selected' => 0,
--    'skip_confirmation' => 0,
--    'override_label' => 0,
--    'label' => '',
--    'postpone_processing' => 0,
--  ),
--  'action::views_bulk_operations_script_action' => array(
--    'selected' => 0,
--    'skip_confirmation' => 0,
--    'override_label' => 0,
--    'label' => '',
--    'postpone_processing' => 0,
-   ),
-   'action::node_make_sticky_action' => array(
-     'selected' => 1,
-+    'postpone_processing' => 0,
-     'skip_confirmation' => 1,
-     'override_label' => 1,
-     'label' => 'Stick',
--    'postpone_processing' => 0,
-   ),
-   'action::node_make_unsticky_action' => array(
-     'selected' => 1,
-+    'postpone_processing' => 0,
-     'skip_confirmation' => 1,
-     'override_label' => 1,
-     'label' => 'Unstick',
--    'postpone_processing' => 0,
-   ),
--  'action::views_bulk_operations_argument_selector_action' => array(
--    'selected' => 0,
--    'skip_confirmation' => 0,
--    'override_label' => 0,
--    'label' => '',
-+  'action::views_bulk_operations_modify_action' => array(
++  ),
++  'action::node_make_sticky_action' => array(
++    'selected' => 1,
+     'postpone_processing' => 0,
++    'skip_confirmation' => 1,
++    'override_label' => 1,
++    'label' => 'Stick',
++  ),
++  'action::node_make_unsticky_action' => array(
 +    'selected' => 1,
 +    'postpone_processing' => 0,
 +    'skip_confirmation' => 1,
 +    'override_label' => 1,
-+    'label' => 'Change value',
++    'label' => 'Unstick',
+   ),
+   'action::views_bulk_operations_modify_action' => array(
+     'selected' => 1,
++    'postpone_processing' => 0,
+     'skip_confirmation' => 1,
+     'override_label' => 1,
+     'label' => 'Change value',
      'settings' => array(
--      'url' => '',
-+      'show_all_tokens' => 1,
-+      'display_values' => array(
+       'show_all_tokens' => 1,
+       'display_values' => array(
+-        '_all_' => '_all_',
 +        'anthology::field_regions' => 'anthology::field_regions',
 +        'anthology::field_topics' => 'anthology::field_topics',
 +        'anthology::field_tags' => 'anthology::field_tags',
@@ -108,7 +73,48 @@ index d501c18..61e0e12 100644
 +        'sponsored_anthology::field_regions' => 'sponsored_anthology::field_regions',
 +        'sponsored_anthology::field_tags' => 'sponsored_anthology::field_tags',
 +        'sponsored_anthology::field_topics' => 'sponsored_anthology::field_topics',
-+      ),
+       ),
+     ),
+-    'postpone_processing' => 0,
+-  ),
+-  'action::system_message_action' => array(
+-    'selected' => 0,
+-    'skip_confirmation' => 0,
+-    'override_label' => 0,
+-    'label' => '',
+-    'postpone_processing' => 0,
+-  ),
+-  'action::views_bulk_operations_script_action' => array(
+-    'selected' => 0,
+-    'skip_confirmation' => 0,
+-    'override_label' => 0,
+-    'label' => '',
+-    'postpone_processing' => 0,
+   ),
+-  'action::node_make_sticky_action' => array(
+-    'selected' => 1,
+-    'skip_confirmation' => 1,
+-    'override_label' => 1,
+-    'label' => 'Stick',
+-    'postpone_processing' => 0,
+-  ),
+-  'action::node_make_unsticky_action' => array(
++  'action::views_bulk_operations_argument_selector_action' => array(
+     'selected' => 1,
+     'skip_confirmation' => 1,
+     'override_label' => 1,
+-    'label' => 'Unstick',
+-    'postpone_processing' => 0,
+-  ),
+-  'action::views_bulk_operations_argument_selector_action' => array(
+-    'selected' => 0,
+-    'skip_confirmation' => 0,
+-    'override_label' => 0,
+-    'label' => '',
++    'label' => 'Create new Anthology',
+     'settings' => array(
+-      'url' => '',
++      'url' => 'fa-anthology/prepopulate/',
      ),
    ),
    'action::node_promote_action' => array(
@@ -176,7 +182,7 @@ index d501c18..61e0e12 100644
    ),
  );
  /* Field: Content: Title */
-@@ -274,6 +254,19 @@ $handler->display->display_options['fields']['name']['field'] = 'name';
+@@ -274,6 +263,19 @@ $handler->display->display_options['fields']['name']['field'] = 'name';
  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
  $handler->display->display_options['fields']['name']['label'] = 'Author';
  $handler->display->display_options['fields']['name']['hide_alter_empty'] = FALSE;
@@ -196,7 +202,7 @@ index d501c18..61e0e12 100644
  /* Field: Content: Published */
  $handler->display->display_options['fields']['status']['id'] = 'status';
  $handler->display->display_options['fields']['status']['table'] = 'node';
-@@ -350,12 +343,124 @@ $handler->display->display_options['filters']['vid']['expose']['label'] = 'Vocab
+@@ -350,13 +352,126 @@ $handler->display->display_options['filters']['vid']['expose']['label'] = 'Vocab
  $handler->display->display_options['filters']['vid']['expose']['operator'] = 'vid_op';
  $handler->display->display_options['filters']['vid']['expose']['identifier'] = 'vid';
  $handler->display->display_options['filters']['vid']['expose']['remember'] = TRUE;
@@ -319,5 +325,15 @@ index d501c18..61e0e12 100644
 +$handler->display->display_options['defaults']['row_plugin'] = FALSE;
 +$handler->display->display_options['defaults']['row_options'] = FALSE;
  $handler->display->display_options['path'] = 'admin/content';
++
  $translatables['admin_views_node'] = array(
    t('Defaults'),
+   t('Content'),
+@@ -378,6 +493,7 @@ $translatables['admin_views_node'] = array(
+   t('term'),
+   t('- Choose an operation -'),
+   t('Change author'),
++  t('Create new Anthology'),
+   t('Delete'),
+   t('Change value'),
+   t('Stick'),

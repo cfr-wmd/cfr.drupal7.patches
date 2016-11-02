@@ -1,5 +1,5 @@
 diff --git a/admin_views_default/node.admin-content.inc b/admin_views_default/node.admin-content.inc
-index d501c18..977c540 100644
+index d501c18..32da449 100644
 --- a/admin_views_default/node.admin-content.inc
 +++ b/admin_views_default/node.admin-content.inc
 @@ -129,128 +129,117 @@ $handler->display->display_options['fields']['views_bulk_operations']['element_l
@@ -182,14 +182,27 @@ index d501c18..977c540 100644
    ),
  );
  /* Field: Content: Title */
-@@ -274,6 +263,19 @@ $handler->display->display_options['fields']['name']['field'] = 'name';
+@@ -274,6 +263,39 @@ $handler->display->display_options['fields']['name']['field'] = 'name';
  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
  $handler->display->display_options['fields']['name']['label'] = 'Author';
  $handler->display->display_options['fields']['name']['hide_alter_empty'] = FALSE;
++/* Field: Content: Business Tags */
++$handler->display->display_options['fields']['field_business_tags']['id'] = 'field_business_tags';
++$handler->display->display_options['fields']['field_business_tags']['table'] = 'field_data_field_business_tags';
++$handler->display->display_options['fields']['field_business_tags']['field'] = 'field_business_tags';
++$handler->display->display_options['fields']['field_business_tags']['label'] = '';
++$handler->display->display_options['fields']['field_business_tags']['exclude'] = TRUE;
++$handler->display->display_options['fields']['field_business_tags']['element_type'] = '0';
++$handler->display->display_options['fields']['field_business_tags']['element_label_colon'] = FALSE;
++$handler->display->display_options['fields']['field_business_tags']['element_wrapper_type'] = '0';
++$handler->display->display_options['fields']['field_business_tags']['element_default_classes'] = FALSE;
++$handler->display->display_options['fields']['field_business_tags']['delta_offset'] = '0';
++$handler->display->display_options['fields']['field_business_tags']['field_api_classes'] = TRUE;
 +/* Field: Content: Tags */
 +$handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
 +$handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
 +$handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
++$handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
 +$handler->display->display_options['fields']['field_tags']['element_type'] = '0';
 +$handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
 +$handler->display->display_options['fields']['field_tags']['element_wrapper_type'] = '0';
@@ -199,10 +212,17 @@ index d501c18..977c540 100644
 +);
 +$handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
 +$handler->display->display_options['fields']['field_tags']['field_api_classes'] = TRUE;
++/* Field: Content: Title */
++$handler->display->display_options['fields']['title_1']['id'] = 'title_1';
++$handler->display->display_options['fields']['title_1']['table'] = 'node';
++$handler->display->display_options['fields']['title_1']['field'] = 'title';
++$handler->display->display_options['fields']['title_1']['label'] = 'Tags';
++$handler->display->display_options['fields']['title_1']['alter']['alter_text'] = TRUE;
++$handler->display->display_options['fields']['title_1']['alter']['text'] = '[field_business_tags][field_tags]';
  /* Field: Content: Published */
  $handler->display->display_options['fields']['status']['id'] = 'status';
  $handler->display->display_options['fields']['status']['table'] = 'node';
-@@ -350,13 +352,126 @@ $handler->display->display_options['filters']['vid']['expose']['label'] = 'Vocab
+@@ -350,13 +372,164 @@ $handler->display->display_options['filters']['vid']['expose']['label'] = 'Vocab
  $handler->display->display_options['filters']['vid']['expose']['operator'] = 'vid_op';
  $handler->display->display_options['filters']['vid']['expose']['identifier'] = 'vid';
  $handler->display->display_options['filters']['vid']['expose']['remember'] = TRUE;
@@ -210,6 +230,7 @@ index d501c18..977c540 100644
 +$handler->display->display_options['filters']['tid']['id'] = 'tid';
 +$handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
 +$handler->display->display_options['filters']['tid']['field'] = 'tid';
++$handler->display->display_options['filters']['tid']['value'] = '';
 +$handler->display->display_options['filters']['tid']['exposed'] = TRUE;
 +$handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
 +$handler->display->display_options['filters']['tid']['expose']['label'] = 'Tags';
@@ -221,21 +242,58 @@ index d501c18..977c540 100644
 +  7 => 0,
 +  3 => 0,
 +  4 => 0,
-+  10 => 0,
 +  13 => 0,
 +  12 => 0,
 +  8 => 0,
 +  11 => 0,
++  19 => 0,
 +  6 => 0,
 +  5 => 0,
-+  9 => 0,
 +  14 => 0,
 +  15 => 0,
 +  16 => 0,
-+  17 => 0,
 +  18 => 0,
++  17 => 0,
++);
++$handler->display->display_options['filters']['tid']['group_info']['label'] = 'Has taxonomy term';
++$handler->display->display_options['filters']['tid']['group_info']['identifier'] = 'tid';
++$handler->display->display_options['filters']['tid']['group_info']['remember'] = FALSE;
++$handler->display->display_options['filters']['tid']['group_info']['group_items'] = array(
++  1 => array(),
++  2 => array(),
++  3 => array(),
 +);
 +$handler->display->display_options['filters']['tid']['vocabulary'] = 'tags';
++/* Filter criterion: Content: Has taxonomy term */
++$handler->display->display_options['filters']['tid_1']['id'] = 'tid_1';
++$handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
++$handler->display->display_options['filters']['tid_1']['field'] = 'tid';
++$handler->display->display_options['filters']['tid_1']['value'] = '';
++$handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
++$handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
++$handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Business Tags';
++$handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
++$handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'tid_1';
++$handler->display->display_options['filters']['tid_1']['expose']['remember_roles'] = array(
++  2 => '2',
++  1 => 0,
++  7 => 0,
++  3 => 0,
++  4 => 0,
++  13 => 0,
++  12 => 0,
++  8 => 0,
++  11 => 0,
++  19 => 0,
++  6 => 0,
++  5 => 0,
++  14 => 0,
++  15 => 0,
++  16 => 0,
++  18 => 0,
++  17 => 0,
++);
++$handler->display->display_options['filters']['tid_1']['vocabulary'] = 'business_tags';
  
  /* Display: System */
  $handler = $view->new_display('system', 'System', 'system_1');
@@ -329,7 +387,7 @@ index d501c18..977c540 100644
  $translatables['admin_views_node'] = array(
    t('Defaults'),
    t('Content'),
-@@ -378,6 +493,7 @@ $translatables['admin_views_node'] = array(
+@@ -378,6 +551,7 @@ $translatables['admin_views_node'] = array(
    t('term'),
    t('- Choose an operation -'),
    t('Change author'),

@@ -1,0 +1,13 @@
+diff --git a/dist/elasticui.js b/dist/elasticui.js
+index 0afaa51..75ede76 100644
+--- a/dist/elasticui.js
++++ b/dist/elasticui.js
+@@ -665,7 +665,7 @@ var elasticui;
+                 // apply search filters to the request
+                 var combinedFilter = this.filters.getAsFilter();
+                 if (combinedFilter != null) {
+-                    request.filter(combinedFilter);
++                    request.post_filter(combinedFilter);
+                 }
+                 if (this.indexVM.query != null) {
+                     request.query(this.indexVM.query);

@@ -1,0 +1,24 @@
+diff --git a/examples/demo/lib/elastic.js b/examples/demo/lib/elastic.js
+index e52f20b..14822ec 100644
+--- a/examples/demo/lib/elastic.js
++++ b/examples/demo/lib/elastic.js
+@@ -16103,16 +16103,16 @@
+                   @param {Object} filter Any valid <code>Filter</code> object.
+                   @returns {Object} returns <code>this</code> so that calls can be chained.
+                   */
+-            filter: function (filter) {
++            post_filter: function (filter) {
+                 if (filter == null) {
+-                    return query.filter;
++                    return query.post_filter;
+                 }
+ 
+                 if (!isFilter(filter)) {
+                     throw new TypeError('Argument must be a Filter');
+                 }
+ 
+-                query.filter = filter.toJSON();
++                query.post_filter = filter.toJSON();
+                 return this;
+             },
+ 

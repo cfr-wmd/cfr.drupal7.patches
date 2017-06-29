@@ -1,0 +1,16 @@
+diff --git a/includes/bootstrap.inc b/includes/bootstrap.inc
+index c06055e..24a6da7 100644
+--- a/includes/bootstrap.inc
++++ b/includes/bootstrap.inc
+@@ -3217,6 +3217,11 @@ function ip_address() {
+         // Eliminate all trusted IPs.
+         $untrusted = array_diff($forwarded, $reverse_proxy_addresses);
+ 
++        // If configured, eliminate more trusted IPs.
++        if (!empty($untrusted) && variable_get('reverse_proxy_addresses_skip', 0) != 0) {
++          $untrusted = array_slice($untrusted, 0, -(variable_get('reverse_proxy_addresses_skip')));
++        }
++
+         if (!empty($untrusted)) {
+           // The right-most IP is the most specific we can trust.
+           $ip_address = array_pop($untrusted);

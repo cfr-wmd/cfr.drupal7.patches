@@ -1,0 +1,19 @@
+diff --git a/robots.txt b/robots.txt
+index a2ee32e..2207bc4 100644
+--- a/robots.txt
++++ b/robots.txt
+@@ -32,14 +32,6 @@ Allow: /modules/*.gif
+ Allow: /modules/*.jpg
+ Allow: /modules/*.jpeg
+ Allow: /modules/*.png
+-Allow: /profiles/*.css$
+-Allow: /profiles/*.css?
+-Allow: /profiles/*.js$
+-Allow: /profiles/*.js?
+-Allow: /profiles/*.gif
+-Allow: /profiles/*.jpg
+-Allow: /profiles/*.jpeg
+-Allow: /profiles/*.png
+ Allow: /themes/*.css$
+ Allow: /themes/*.css?
+ Allow: /themes/*.js$

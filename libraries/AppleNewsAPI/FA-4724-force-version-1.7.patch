@@ -1,0 +1,13 @@
+diff --git a/src/Document.php b/src/Document.php
+index dd87ba7..bddec11 100644
+--- a/src/Document.php
++++ b/src/Document.php
+@@ -23,7 +23,7 @@ use ChapterThree\AppleNewsAPI\Document\Layouts\ComponentLayout;
+  */
+ class Document extends Base {
+ 
+-  protected $version = '0.10.13';
++  protected $version = '1.7';
+   protected $identifier;
+   protected $title;
+   protected $language;

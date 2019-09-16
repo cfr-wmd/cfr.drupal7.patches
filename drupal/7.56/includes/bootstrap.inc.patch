@@ -1,11 +1,23 @@
 diff --git a/includes/bootstrap.inc b/includes/bootstrap.inc
-index c06055e..24a6da7 100644
+index 7f1bfbad18..05c5a7a61c 100644
 --- a/includes/bootstrap.inc
 +++ b/includes/bootstrap.inc
-@@ -3217,6 +3217,11 @@ function ip_address() {
+@@ -3222,6 +3222,11 @@ function ip_address() {
+   if (!isset($ip_address)) {
+     $ip_address = $_SERVER['REMOTE_ADDR'];
+
++    // Using Imperva header to help resolve the IP address.
++    if (isset($_SERVER['HTTP_INCAP_CLIENT_IP']) && !empty($_SERVER['HTTP_INCAP_CLIENT_IP'])) {
++      return $_SERVER['HTTP_INCAP_CLIENT_IP'];
++    }
++
+     if (variable_get('reverse_proxy', 0)) {
+       $reverse_proxy_header = variable_get('reverse_proxy_header', 'HTTP_X_FORWARDED_FOR');
+       if (!empty($_SERVER[$reverse_proxy_header])) {
+@@ -3241,6 +3246,11 @@ function ip_address() {
          // Eliminate all trusted IPs.
          $untrusted = array_diff($forwarded, $reverse_proxy_addresses);
- 
+
 +        // If configured, eliminate more trusted IPs.
 +        if (!empty($untrusted) && variable_get('reverse_proxy_addresses_skip', 0) != 0) {
 +          $untrusted = array_slice($untrusted, 0, -(variable_get('reverse_proxy_addresses_skip')));
